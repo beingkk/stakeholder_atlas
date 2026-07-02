@@ -13,10 +13,12 @@ logger = logging.getLogger(__name__)
 class Settings(BaseSettings):
     """Application settings loaded from environment variables."""
 
+    # API Configuration
     PROJECT_NAME: str = "Stakeholder Atlas API"
     VERSION: str = "0.1.0"
     API_V1_STR: str = "/api/v1"
 
+    # CORS
     BACKEND_CORS_ORIGINS: str | list[str] = ["http://localhost:3000"]
 
     @field_validator("BACKEND_CORS_ORIGINS", mode="before")
@@ -46,10 +48,31 @@ class Settings(BaseSettings):
 
         return default_origins
 
+    # Server
     HOST: str = "0.0.0.0"
     PORT: int = 8000
     RELOAD: bool = True
     LOG_LEVEL: str = "INFO"
+
+    # OpenAlex Configuration
+    OPENALEX_EMAIL: str | None = None
+    OPENALEX_API_KEY: str | None = None
+
+    # OpenAI Configuration
+    OPENAI_API_KEY: str | None = None
+    WEB_SEARCH_MODEL: str = "gpt-5.4"
+    VERIFICATION_MODEL: str = "gpt-5.4-mini"
+
+    # Supabase Configuration
+    SUPABASE_URL: str | None = None
+    SUPABASE_KEY: str | None = None
+
+    # Geography context — defines what "local" and "national" mean
+    GEOGRAPHY_CONTEXT: str = "UK"
+
+    # Search Defaults
+    DEFAULT_MAX_RESULTS: int = 50
+    MAX_SEARCH_RESULTS: int = 500
 
     model_config = SettingsConfigDict(
         env_file=".env",

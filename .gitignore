@@ -227,3 +227,5 @@ dist/
 # IDE
 .idea/
 .vscode/
+
+design_handoff_policy_atlas_evidence/*
