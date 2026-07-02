@@ -229,3 +229,4 @@ dist/
 .vscode/
 
 design_handoff_policy_atlas_evidence/*
+frontend/public/fonts/*
