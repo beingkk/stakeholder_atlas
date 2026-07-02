@@ -230,3 +230,4 @@ dist/
 
 design_handoff_policy_atlas_evidence/*
 frontend/public/fonts/*
+backend/r_and_d/*.json
